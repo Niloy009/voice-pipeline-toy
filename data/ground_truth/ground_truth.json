@@ -1,0 +1,286 @@
+[
+  {
+    "id": "script_01",
+    "title": "Successful Visit, New Client",
+    "transcript_summary": "Deal closed. Client agreed to starter package. Contract to be sent by Thursday. Onboarding end of month.",
+    "deal_status": "closed_won",
+    "sentiment": "positive",
+    "action_items": [
+      "Send contract by Thursday",
+      "Onboard client by end of month"
+    ],
+    "follow_up_date": "Thursday",
+    "product_discussed": "Starter package",
+    "client_concern": null
+  },
+  {
+    "id": "script_02",
+    "title": "Price Objection",
+    "transcript_summary": "Client found professional plan at 400€ too expensive. Budget is around 250€. Salesperson to follow up with discount proposal.",
+    "deal_status": "in_progress",
+    "sentiment": "neutral",
+    "action_items": [
+      "Check if quarterly discount is possible",
+      "Follow up by Wednesday with discount proposal"
+    ],
+    "follow_up_date": "Wednesday",
+    "product_discussed": "Professional plan",
+    "client_concern": "price"
+  },
+  {
+    "id": "script_03",
+    "title": "Decision Maker Not Present",
+    "transcript_summary": "IT lead was absent. Meeting rescheduled to Monday at 10am with IT lead included.",
+    "deal_status": "in_progress",
+    "sentiment": "neutral",
+    "action_items": [
+      "Reschedule meeting to Monday 10am",
+      "Include IT lead in next meeting"
+    ],
+    "follow_up_date": "Monday 10:00",
+    "product_discussed": "Integration options",
+    "client_concern": "missing_decision_maker"
+  },
+  {
+    "id": "script_04",
+    "title": "Competitor Mention",
+    "transcript_summary": "Client is evaluating Salesforce as alternative. Interested in voice-first workflow differentiator. Demo scheduled for Tuesday.",
+    "deal_status": "in_progress",
+    "sentiment": "neutral",
+    "action_items": [
+      "Schedule live demo for Tuesday"
+    ],
+    "follow_up_date": "Tuesday",
+    "product_discussed": "Voice-first workflow",
+    "client_concern": "competitor",
+    "competitor_mentioned": "Salesforce"
+  },
+  {
+    "id": "script_05",
+    "title": "Follow-up After Trial",
+    "transcript_summary": "Client reported mobile app crashing. Voice logging feature not yet used due to lack of training. Escalation and onboarding session needed.",
+    "deal_status": "in_progress",
+    "sentiment": "mixed",
+    "action_items": [
+      "Escalate app crash issue to technical team today",
+      "Arrange 30-minute onboarding session this week"
+    ],
+    "follow_up_date": "this week",
+    "product_discussed": "Voice logging, mobile app",
+    "client_concern": "technical_issue"
+  },
+  {
+    "id": "script_06",
+    "title": "Cold Visit, Receptive Client",
+    "transcript_summary": "Unannounced visit. Client receptive and interested in voice logging for admin reduction. Requested materials via email.",
+    "deal_status": "new_lead",
+    "sentiment": "positive",
+    "action_items": [
+      "Send product materials to m.hoffman@bauer-gruppe.de"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Voice logging",
+    "client_concern": null,
+    "client_email": "m.hoffman@bauer-gruppe.de"
+  },
+  {
+    "id": "script_07",
+    "title": "Renewal Discussion",
+    "transcript_summary": "Contract renewal in 6 weeks. Client wants 2 extra seats and asked about loyalty discount. 15% discount available for 2-year renewal.",
+    "deal_status": "renewal",
+    "sentiment": "positive",
+    "action_items": [
+      "Add 2 extra seats to renewal quote",
+      "Send 1-year and 2-year renewal options with loyalty discount"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Renewal, seat expansion",
+    "client_concern": "pricing",
+    "contract_expiry": "6 weeks"
+  },
+  {
+    "id": "script_08",
+    "title": "Technical / GDPR Concern",
+    "transcript_summary": "Client raised GDPR compliance and data storage questions. ISO 27001 certification in progress for Q3. Compliance docs to be sent.",
+    "deal_status": "in_progress",
+    "sentiment": "neutral",
+    "action_items": [
+      "Send GDPR compliance documentation",
+      "Share current ISO 27001 status"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Data compliance",
+    "client_concern": "gdpr_compliance"
+  },
+  {
+    "id": "script_09",
+    "title": "Unhappy Client",
+    "transcript_summary": "Client frustrated about 2-day system downtime last month. Expansion on hold until updated SLA with uptime guarantees is provided.",
+    "deal_status": "at_risk",
+    "sentiment": "negative",
+    "action_items": [
+      "Send updated SLA with uptime guarantees by end of week"
+    ],
+    "follow_up_date": "end of week",
+    "product_discussed": "SLA, uptime",
+    "client_concern": "reliability"
+  },
+  {
+    "id": "script_10",
+    "title": "Upsell Opportunity",
+    "transcript_summary": "Client currently has 12 users, 8 more joining next quarter. Upsell opportunity with team scaling package at 32€/seat instead of 40€.",
+    "deal_status": "upsell",
+    "sentiment": "positive",
+    "action_items": [
+      "Send pricing comparison sheet for team scaling package"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Team scaling package",
+    "client_concern": "pricing",
+    "current_seats": 12,
+    "potential_seats": 20
+  },
+  {
+    "id": "script_11",
+    "title": "Deal Lost — Budget Cuts",
+    "transcript_summary": "Client decided not to proceed due to internal budget cuts. Not a product issue. Follow up next quarter.",
+    "deal_status": "closed_lost",
+    "sentiment": "neutral",
+    "action_items": [
+      "Follow up next quarter"
+    ],
+    "follow_up_date": "next quarter",
+    "product_discussed": null,
+    "client_concern": "budget"
+  },
+  {
+    "id": "script_12",
+    "title": "Pilot Proposal",
+    "transcript_summary": "Pilot proposed — 5 users, 60 days, free of charge. Client confirming with director. Pilot agreement to be sent.",
+    "deal_status": "in_progress",
+    "sentiment": "positive",
+    "action_items": [
+      "Send pilot agreement document",
+      "Wait for director confirmation"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Pilot program",
+    "client_concern": "commitment_risk",
+    "pilot_users": 5,
+    "pilot_days": 60
+  },
+  {
+    "id": "script_13",
+    "title": "ASR Domain Term Issue",
+    "transcript_summary": "Client reported German domain terms not being recognized correctly — KFZ-Zulassung and Rahmenvertrag. Feedback passed to ASR team.",
+    "deal_status": "in_progress",
+    "sentiment": "mixed",
+    "action_items": [
+      "Report unrecognized terms to ASR team: KFZ-Zulassung, Rahmenvertrag"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "ASR accuracy",
+    "client_concern": "asr_quality",
+    "domain_terms_flagged": ["KFZ-Zulassung", "Rahmenvertrag"]
+  },
+  {
+    "id": "script_14",
+    "title": "Multi-Site Enterprise Client",
+    "transcript_summary": "Client has 3 offices — Berlin, Hamburg, München — with 15 reps each, totaling 45 seats. Enterprise plan to be sent. Procurement team to be looped in.",
+    "deal_status": "in_progress",
+    "sentiment": "positive",
+    "action_items": [
+      "Send enterprise plan details",
+      "Loop in procurement team"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Enterprise plan",
+    "client_concern": null,
+    "locations": ["Berlin", "Hamburg", "München"],
+    "total_seats": 45
+  },
+  {
+    "id": "script_15",
+    "title": "Demo Follow-up — CRM Integration",
+    "transcript_summary": "Team liked voice logging. Concern about HubSpot CRM integration. Native HubSpot integration exists. Technical call with engineer to be scheduled.",
+    "deal_status": "in_progress",
+    "sentiment": "positive",
+    "action_items": [
+      "Schedule technical call with engineer about HubSpot integration"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Voice logging, CRM integration",
+    "client_concern": "integration",
+    "crm_used": "HubSpot"
+  },
+  {
+    "id": "script_16",
+    "title": "Onboarding Pushed to January",
+    "transcript_summary": "Onboarding postponed to January 8th due to Q4 pressure. Calendar invite to be sent.",
+    "deal_status": "in_progress",
+    "sentiment": "positive",
+    "action_items": [
+      "Send calendar invite for January 8th onboarding kickoff"
+    ],
+    "follow_up_date": "January 8",
+    "product_discussed": "Onboarding",
+    "client_concern": "timing"
+  },
+  {
+    "id": "script_17",
+    "title": "Reference Request",
+    "transcript_summary": "Client wants to speak with a reference in the logistics industry. Two existing logistics clients available. Response with contact by Friday.",
+    "deal_status": "in_progress",
+    "sentiment": "positive",
+    "action_items": [
+      "Contact 2 logistics clients about reference call",
+      "Respond to client with contact by Friday"
+    ],
+    "follow_up_date": "Friday",
+    "product_discussed": null,
+    "client_concern": "trust_validation",
+    "industry": "logistics"
+  },
+  {
+    "id": "script_18",
+    "title": "Feature Requests",
+    "transcript_summary": "Client requested PDF export of summaries and custom fields in visit report. PDF export logged as feature request. Custom fields on Q2 roadmap — client added to beta list.",
+    "deal_status": "active_customer",
+    "sentiment": "positive",
+    "action_items": [
+      "Log PDF export as feature request",
+      "Add client to Q2 custom fields beta list"
+    ],
+    "follow_up_date": null,
+    "product_discussed": "Visit report, export features",
+    "client_concern": "missing_features",
+    "features_requested": ["PDF export", "Custom report fields"]
+  },
+  {
+    "id": "script_19",
+    "title": "Budget Approval Pending",
+    "transcript_summary": "Budget decision pending — finance team meets next Thursday. Follow up on Friday afternoon. One-pager to be sent for finance team.",
+    "deal_status": "in_progress",
+    "sentiment": "neutral",
+    "action_items": [
+      "Send one-pager summary for finance team",
+      "Follow up Friday afternoon after finance meeting"
+    ],
+    "follow_up_date": "Friday afternoon",
+    "product_discussed": null,
+    "client_concern": "budget_approval"
+  },
+  {
+    "id": "script_20",
+    "title": "Short Rushed Visit",
+    "transcript_summary": "Brief visit. Client confirmed receipt of updated pricing with positive reaction. Full meeting scheduled for Wednesday. Meeting link to be sent.",
+    "deal_status": "in_progress",
+    "sentiment": "positive",
+    "action_items": [
+      "Send meeting link for Wednesday"
+    ],
+    "follow_up_date": "Wednesday",
+    "product_discussed": "Pricing",
+    "client_concern": null
+  }
+]

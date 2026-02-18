@@ -1,0 +1,198 @@
+
+Script 1
+Salesperson: Good morning, I'm here to follow up on our proposal from last week.  
+Client: Yes, come in. We had a chance to review it.  
+Salesperson: Great. Any questions on the pricing structure?  
+Client: Not really. We'd like to move forward with the starter package.  
+Salesperson: Perfect. I'll send the contract by Thursday. We can onboard you by end of month.  
+Client: That works for us.  
+[Summary: Deal closed. Starter package. Contract by Thursday. Onboarding end of month.]
+
+### Script 2 — Price Objection
+Salesperson: So based on your team size, I'd recommend the professional plan at 400 euros per month.  
+Client: That's more than we expected, honestly.  
+Salesperson: I understand. What budget range were you thinking?  
+Client: Somewhere around 250.  
+Salesperson: Let me check if we can offer a quarterly discount. I'll come back to you by Wednesday.  
+[Summary: Price objection. Client budget 250€. Follow up Wednesday with discount proposal.]
+
+---
+
+### Script 3 — Decision Maker Not Present
+**Salesperson:** I wanted to discuss the integration options with your team today.  
+**Client:** Unfortunately our IT lead couldn't make it. He's out until next week.  
+**Salesperson:** No problem. Can we schedule a call for Monday with him included?  
+**Client:** Yes, Monday at 10 should work.  
+**[Summary: IT lead absent. Reschedule Monday 10am. Include IT lead in next meeting.]**
+
+---
+
+### Script 4 — Competitor Mention
+**Salesperson:** How has your current solution been working for you?  
+**Client:** It's okay. We're also looking at what Salesforce offers.  
+**Salesperson:** Fair enough. Our advantage is the voice-first workflow — no manual data entry after visits.  
+**Client:** That does sound interesting. Can you show me a demo?  
+**Salesperson:** Absolutely. I'll set up a live demo for next Tuesday.  
+**[Summary: Competitor: Salesforce. Client interested in voice workflow. Demo scheduled Tuesday.]**
+
+---
+
+### Script 5 — Follow-up After Trial
+**Salesperson:** You've been on the trial for two weeks now. How's it going?  
+**Client:** The team likes it but we had some issues with the mobile app crashing.  
+**Salesperson:** I'll escalate that to our technical team today. Have you been using the voice logging feature?  
+**Client:** Not yet, we haven't had training on it.  
+**Salesperson:** I'll arrange a 30-minute onboarding session for your team this week.  
+**[Summary: App crash issue — escalate to tech. Voice feature not used yet. Onboarding session this week.]**
+
+---
+
+### Script 6 — Cold Visit, Receptive Client
+**Salesperson:** Hi, I know this is unannounced but I work with field sales teams in this area. Do you have five minutes?  
+**Client:** Sure, why not.  
+**Salesperson:** We help sales reps log customer visits automatically using voice. No typing, no forms.  
+**Client:** Interesting. Our reps spend a lot of time on admin after visits.  
+**Salesperson:** Exactly the problem we solve. Can I send you some materials?  
+**Client:** Yes, send it to my email — m.hoffman at bauer-gruppe dot de  
+**[Summary: Cold visit. Receptive. Send materials to m.hoffman@bauer-gruppe.de]**
+
+---
+
+### Script 7 — Renewal Discussion
+**Salesperson:** Your annual contract is up in six weeks. Have you thought about renewal?  
+**Client:** We have, yes. We're happy overall but want to add two more user seats.  
+**Salesperson:** That's easy to do. I can add seats to the renewal quote.  
+**Client:** Also, is there any loyalty discount?  
+**Salesperson:** For two-year renewals we offer 15 percent. I'll include both options in the quote.  
+**[Summary: Renewal in 6 weeks. Client wants 2 extra seats. Offer 1yr and 2yr quote with loyalty discount.]**
+
+---
+
+### Script 8 — Technical Concern
+**Salesperson:** Ready to proceed with the rollout?  
+**Client:** Almost. Our data team has questions about GDPR compliance and where data is stored.  
+**Salesperson:** All data is stored on EU servers. I can send our compliance documentation.  
+**Client:** Please do. Also, do you have an ISO certification?  
+**Salesperson:** We're ISO 27001 in progress. Expected Q3. I'll send what we have now.  
+**[Summary: GDPR and data storage concern. Send compliance docs. ISO 27001 in progress — share current status.]**
+
+---
+
+### Script 9 — Unhappy Client
+**Salesperson:** I wanted to check in after the issues last month.  
+**Client:** Honestly, we were quite frustrated. The system was down for two days.  
+**Salesperson:** I completely understand and I apologize. That's been fixed and we've added redundancy.  
+**Client:** We need guarantees this won't happen again before we consider expanding.  
+**Salesperson:** Fair. I'll send an updated SLA with uptime guarantees by end of week.  
+**[Summary: Client unhappy due to downtime. Send updated SLA with uptime guarantee. Expansion on hold until resolved.]**
+
+---
+
+### Script 10 — Upsell Opportunity
+**Salesperson:** How many reps are currently using the platform?  
+**Client:** About twelve. But we have a new team of eight joining next quarter.  
+**Salesperson:** We have a team scaling package that would cover all twenty at a better per-seat rate.  
+**Client:** What's the difference in price?  
+**Salesperson:** Instead of 40 euros per seat you'd pay 32. I'll send a comparison sheet.  
+**[Summary: 12 current users. 8 joining next quarter. Upsell team scaling package at 32€/seat. Send comparison.]**
+
+---
+
+### Script 11 — Short Negative Visit
+**Salesperson:** Thanks for making time. Have you had a chance to review the proposal?  
+**Client:** We have, and we've decided to go in a different direction.  
+**Salesperson:** Can I ask what made the difference?  
+**Client:** Mostly internal budget cuts. Nothing to do with your product.  
+**Salesperson:** I understand. Can I check back in next quarter?  
+**Client:** Sure, that's fine.  
+**[Summary: Deal lost due to budget cuts. Not product issue. Follow up next quarter.]**
+
+---
+
+### Script 12 — Pilot Proposal
+**Salesperson:** Rather than committing to the full rollout, would a pilot work for you?  
+**Client:** What would that look like?  
+**Salesperson:** Five users, 60 days, with full support. You pay nothing until you decide to scale.  
+**Client:** That sounds reasonable. Let me confirm with my director.  
+**Salesperson:** Of course. I'll send the pilot agreement so you have something concrete to show him.  
+**[Summary: Pilot proposed — 5 users, 60 days, free. Client confirming with director. Send pilot agreement.]**
+
+---
+
+### Script 13 — International Client, English Non-Native
+**Salesperson:** How is the platform working for your team in Frankfurt?  
+**Client:** Is working good but some words — technical words — the system is not understanding correct.  
+**Salesperson:** That's useful feedback. Which terms specifically?  
+**Client:** Like product codes. For example "KFZ-Zulassung" or "Rahmenvertrag".  
+**Salesperson:** Got it. I'll pass those to our ASR team to improve recognition for those terms.  
+**[Summary: German domain terms not recognized — KFZ-Zulassung, Rahmenvertrag. Report to ASR team for fine-tuning.]**
+
+---
+
+### Script 14 — Multi-Site Client
+**Salesperson:** You mentioned you have offices in three cities?  
+**Client:** Yes — Berlin, Hamburg, and München.  
+**Salesperson:** Do your sales reps work across sites or are they based locally?  
+**Client:** Each city has its own team. About 15 reps each.  
+**Salesperson:** So we're talking about 45 seats total. I can offer a multi-site enterprise plan.  
+**Client:** Send me the details and I'll loop in our procurement team.  
+**[Summary: 3 sites — Berlin, Hamburg, München. 45 seats total. Send enterprise plan. Loop in procurement.]**
+
+---
+
+### Script 15 — Demo Follow-up
+**Salesperson:** You saw the demo last week — what did your team think?  
+**Client:** They liked the voice logging but weren't sure about the CRM integration with our system.  
+**Salesperson:** Which CRM are you using?  
+**Client:** HubSpot.  
+**Salesperson:** We have a native HubSpot integration. I'll set up a technical call with our engineer.  
+**[Summary: Team liked voice logging. HubSpot integration concern. Schedule technical call with engineer.]**
+
+---
+
+### Script 16 — Seasonal Pressure
+**Salesperson:** I know Q4 is busy for your team. Would it make sense to onboard in January instead?  
+**Client:** Honestly yes. December is terrible for us.  
+**Salesperson:** Let's lock in January 8th as the kickoff date then. I'll hold the slot.  
+**Client:** Perfect. Send me a calendar invite.  
+**[Summary: Onboarding pushed to January 8th due to Q4 pressure. Send calendar invite.]**
+
+---
+
+### Script 17 — Reference Request
+**Salesperson:** Would it help to speak with one of our existing customers in your industry?  
+**Client:** Actually yes. Do you have anyone in logistics?  
+**Salesperson:** We have two clients in logistics. I'll ask if one of them is open to a reference call.  
+**Client:** That would be very helpful.  
+**Salesperson:** I'll come back to you by Friday with a contact.  
+**[Summary: Client wants reference in logistics. Check with 2 existing logistics clients. Respond by Friday.]**
+
+---
+
+### Script 18 — Feature Request During Visit
+**Salesperson:** Any feedback from the team after month one?  
+**Client:** Overall positive. One thing — can the summary be exported directly to PDF?  
+**Salesperson:** Not currently but that's been requested before. I'll log it as a feature request.  
+**Client:** Also, can we customize the fields in the visit report?  
+**Salesperson:** Custom fields are on our roadmap for Q2. I'll add you to the beta list.  
+**[Summary: Feature requests — PDF export, custom report fields. Log both. Add client to Q2 beta list.]**
+
+---
+
+### Script 19 — Budget Approval Pending
+**Salesperson:** Any update on the budget approval?  
+**Client:** Still waiting. Finance meets next Thursday.  
+**Salesperson:** Understood. Should I follow up with you on Friday then?  
+**Client:** Yes, Friday afternoon is good.  
+**Salesperson:** I'll also send a one-page summary you can share with the finance team.  
+**[Summary: Budget pending. Finance decision Thursday. Follow up Friday afternoon. Send one-pager for finance.]**
+
+---
+
+### Script 20 — End of Day, Rushed Visit
+**Salesperson:** I know you're about to head out — I'll keep this quick.  
+**Client:** Yes sorry, I have a call in five minutes.  
+**Salesperson:** No problem. Just wanted to confirm you received the updated pricing.  
+**Client:** I did, looks good. Let's talk properly on Wednesday.  
+**Salesperson:** Wednesday it is. I'll send a meeting link.  
+**[Summary: Short visit. Client received updated pricing — positive reaction. Full meeting Wednesday. Send link.]**

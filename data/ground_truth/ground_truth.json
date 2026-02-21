@@ -1,286 +1,275 @@
 [
   {
-    "id": "script_01",
+    "id": "script_1",
     "title": "Successful Visit, New Client",
+    "full_transcript": "Good morning, I'm here to follow up on our proposal from last week. Yes, come in. We had a chance to review it. Great. Any questions on the pricing structure? Not really. We'd like to move forward with the starter package. Perfect. I'll send the contract by Thursday. We can onboard you by end of month. That works for us.",
     "transcript_summary": "Deal closed. Client agreed to starter package. Contract to be sent by Thursday. Onboarding end of month.",
     "deal_status": "closed_won",
     "sentiment": "positive",
-    "action_items": [
-      "Send contract by Thursday",
-      "Onboard client by end of month"
-    ],
+    "action_items": ["Send contract by Thursday", "Onboard client by end of month"],
     "follow_up_date": "Thursday",
     "product_discussed": "Starter package",
-    "client_concern": null
+    "client_concern": null,
+    "keywords": ["starter package", "contract", "Thursday", "onboard", "end of month"]
   },
   {
-    "id": "script_02",
+    "id": "script_2",
     "title": "Price Objection",
-    "transcript_summary": "Client found professional plan at 400€ too expensive. Budget is around 250€. Salesperson to follow up with discount proposal.",
+    "full_transcript": "So based on your team size, I'd recommend the professional plan at 400 euros per month. That's more than we expected, honestly. I understand. What budget range were you thinking? Somewhere around 250. Let me check if we can offer a quarterly discount. I'll come back to you by Wednesday.",
+    "transcript_summary": "Client found professional plan at 400 euros too expensive. Budget is around 250 euros. Salesperson to follow up with discount proposal.",
     "deal_status": "in_progress",
     "sentiment": "neutral",
-    "action_items": [
-      "Check if quarterly discount is possible",
-      "Follow up by Wednesday with discount proposal"
-    ],
+    "action_items": ["Check if quarterly discount is possible", "Follow up by Wednesday with discount proposal"],
     "follow_up_date": "Wednesday",
     "product_discussed": "Professional plan",
-    "client_concern": "price"
+    "client_concern": "price",
+    "keywords": ["professional plan", "400 euros", "250", "quarterly discount", "Wednesday"]
   },
   {
-    "id": "script_03",
+    "id": "script_3",
     "title": "Decision Maker Not Present",
+    "full_transcript": "I wanted to discuss the integration options with your team today. Unfortunately our IT lead couldn't make it. He's out until next week. No problem. Can we schedule a call for Monday with him included? Yes, Monday at 10 should work.",
     "transcript_summary": "IT lead was absent. Meeting rescheduled to Monday at 10am with IT lead included.",
     "deal_status": "in_progress",
     "sentiment": "neutral",
-    "action_items": [
-      "Reschedule meeting to Monday 10am",
-      "Include IT lead in next meeting"
-    ],
+    "action_items": ["Reschedule meeting to Monday 10am", "Include IT lead in next meeting"],
     "follow_up_date": "Monday 10:00",
     "product_discussed": "Integration options",
-    "client_concern": "missing_decision_maker"
+    "client_concern": "missing_decision_maker",
+    "keywords": ["integration", "IT lead", "Monday", "10"]
   },
   {
-    "id": "script_04",
+    "id": "script_4",
     "title": "Competitor Mention",
+    "full_transcript": "How has your current solution been working for you? It's okay. We're also looking at what Salesforce offers. Fair enough. Our advantage is the voice-first workflow, no manual data entry after visits. That does sound interesting. Can you show me a demo? Absolutely. I'll set up a live demo for next Tuesday.",
     "transcript_summary": "Client is evaluating Salesforce as alternative. Interested in voice-first workflow differentiator. Demo scheduled for Tuesday.",
     "deal_status": "in_progress",
     "sentiment": "neutral",
-    "action_items": [
-      "Schedule live demo for Tuesday"
-    ],
+    "action_items": ["Schedule live demo for Tuesday"],
     "follow_up_date": "Tuesday",
     "product_discussed": "Voice-first workflow",
     "client_concern": "competitor",
-    "competitor_mentioned": "Salesforce"
+    "competitor_mentioned": "Salesforce",
+    "keywords": ["Salesforce", "voice-first", "demo", "Tuesday", "data entry"]
   },
   {
-    "id": "script_05",
+    "id": "script_5",
     "title": "Follow-up After Trial",
-    "transcript_summary": "Client reported mobile app crashing. Voice logging feature not yet used due to lack of training. Escalation and onboarding session needed.",
+    "full_transcript": "You've been on the trial for two weeks now. How's it going? The team likes it but we had some issues with the mobile app crashing. I'll escalate that to our technical team today. Have you been using the voice logging feature? Not yet, we haven't had training on it. I'll arrange a 30-minute onboarding session for your team this week.",
+    "transcript_summary": "App crash issue escalate to tech. Voice feature not used yet. Onboarding session this week.",
     "deal_status": "in_progress",
     "sentiment": "mixed",
-    "action_items": [
-      "Escalate app crash issue to technical team today",
-      "Arrange 30-minute onboarding session this week"
-    ],
+    "action_items": ["Escalate app crash issue to technical team today", "Arrange 30-minute onboarding session this week"],
     "follow_up_date": "this week",
     "product_discussed": "Voice logging, mobile app",
-    "client_concern": "technical_issue"
+    "client_concern": "technical_issue",
+    "keywords": ["mobile app", "crashing", "voice logging", "onboarding", "30 minutes"]
   },
   {
-    "id": "script_06",
+    "id": "script_6",
     "title": "Cold Visit, Receptive Client",
-    "transcript_summary": "Unannounced visit. Client receptive and interested in voice logging for admin reduction. Requested materials via email.",
+    "full_transcript": "Hi, I know this is unannounced but I work with field sales teams in this area. Do you have five minutes? Sure, why not. We help sales reps log customer visits automatically using voice. No typing, no forms. Interesting. Our reps spend a lot of time on admin after visits. Exactly the problem we solve. Can I send you some materials? Yes, send it to my email, m.hoffman at bauer-gruppe dot de.",
+    "transcript_summary": "Cold visit. Receptive. Send materials to m.hoffman@bauer-gruppe.de.",
     "deal_status": "new_lead",
     "sentiment": "positive",
-    "action_items": [
-      "Send product materials to m.hoffman@bauer-gruppe.de"
-    ],
+    "action_items": ["Send product materials to m.hoffman@bauer-gruppe.de"],
     "follow_up_date": null,
     "product_discussed": "Voice logging",
     "client_concern": null,
-    "client_email": "m.hoffman@bauer-gruppe.de"
+    "client_email": "m.hoffman@bauer-gruppe.de",
+    "keywords": ["voice", "admin", "sales reps", "materials", "bauer-gruppe"]
   },
   {
-    "id": "script_07",
+    "id": "script_7",
     "title": "Renewal Discussion",
-    "transcript_summary": "Contract renewal in 6 weeks. Client wants 2 extra seats and asked about loyalty discount. 15% discount available for 2-year renewal.",
+    "full_transcript": "Your annual contract is up in six weeks. Have you thought about renewal? We have, yes. We're happy overall but want to add two more user seats. That's easy to do. I can add seats to the renewal quote. Also, is there any loyalty discount? For two-year renewals we offer 15 percent. I'll include both options in the quote.",
+    "transcript_summary": "Renewal in 6 weeks. Client wants 2 extra seats. Offer 1yr and 2yr quote with loyalty discount.",
     "deal_status": "renewal",
     "sentiment": "positive",
-    "action_items": [
-      "Add 2 extra seats to renewal quote",
-      "Send 1-year and 2-year renewal options with loyalty discount"
-    ],
+    "action_items": ["Add 2 extra seats to renewal quote", "Send 1-year and 2-year renewal options with loyalty discount"],
     "follow_up_date": null,
     "product_discussed": "Renewal, seat expansion",
     "client_concern": "pricing",
-    "contract_expiry": "6 weeks"
+    "contract_expiry": "6 weeks",
+    "keywords": ["renewal", "six weeks", "two seats", "loyalty discount", "15 percent"]
   },
   {
-    "id": "script_08",
+    "id": "script_8",
     "title": "Technical / GDPR Concern",
+    "full_transcript": "Ready to proceed with the rollout? Almost. Our data team has questions about GDPR compliance and where data is stored. All data is stored on EU servers. I can send our compliance documentation. Please do. Also, do you have an ISO certification? We're ISO 27001 in progress. Expected Q3. I'll send what we have now.",
     "transcript_summary": "Client raised GDPR compliance and data storage questions. ISO 27001 certification in progress for Q3. Compliance docs to be sent.",
     "deal_status": "in_progress",
     "sentiment": "neutral",
-    "action_items": [
-      "Send GDPR compliance documentation",
-      "Share current ISO 27001 status"
-    ],
+    "action_items": ["Send GDPR compliance documentation", "Share current ISO 27001 status"],
     "follow_up_date": null,
     "product_discussed": "Data compliance",
-    "client_concern": "gdpr_compliance"
+    "client_concern": "gdpr_compliance",
+    "keywords": ["GDPR", "EU servers", "compliance", "ISO 27001", "Q3"]
   },
   {
-    "id": "script_09",
+    "id": "script_9",
     "title": "Unhappy Client",
-    "transcript_summary": "Client frustrated about 2-day system downtime last month. Expansion on hold until updated SLA with uptime guarantees is provided.",
+    "full_transcript": "I wanted to check in after the issues last month. Honestly, we were quite frustrated. The system was down for two days. I completely understand and I apologize. That's been fixed and we've added redundancy. We need guarantees this won't happen again before we consider expanding. Fair. I'll send an updated SLA with uptime guarantees by end of week.",
+    "transcript_summary": "Client unhappy due to downtime. Send updated SLA with uptime guarantee. Expansion on hold until resolved.",
     "deal_status": "at_risk",
     "sentiment": "negative",
-    "action_items": [
-      "Send updated SLA with uptime guarantees by end of week"
-    ],
+    "action_items": ["Send updated SLA with uptime guarantees by end of week"],
     "follow_up_date": "end of week",
     "product_discussed": "SLA, uptime",
-    "client_concern": "reliability"
+    "client_concern": "reliability",
+    "keywords": ["downtime", "two days", "SLA", "uptime", "redundancy"]
   },
   {
     "id": "script_10",
     "title": "Upsell Opportunity",
-    "transcript_summary": "Client currently has 12 users, 8 more joining next quarter. Upsell opportunity with team scaling package at 32€/seat instead of 40€.",
+    "full_transcript": "How many reps are currently using the platform? About twelve. But we have a new team of eight joining next quarter. We have a team scaling package that would cover all twenty at a better per-seat rate. What's the difference in price? Instead of 40 euros per seat you'd pay 32. I'll send a comparison sheet.",
+    "transcript_summary": "12 current users. 8 joining next quarter. Upsell team scaling package at 32 euros per seat. Send comparison.",
     "deal_status": "upsell",
     "sentiment": "positive",
-    "action_items": [
-      "Send pricing comparison sheet for team scaling package"
-    ],
+    "action_items": ["Send pricing comparison sheet for team scaling package"],
     "follow_up_date": null,
     "product_discussed": "Team scaling package",
     "client_concern": "pricing",
     "current_seats": 12,
-    "potential_seats": 20
+    "potential_seats": 20,
+    "keywords": ["twelve", "eight", "twenty", "40 euros", "32", "scaling package"]
   },
   {
     "id": "script_11",
     "title": "Deal Lost — Budget Cuts",
-    "transcript_summary": "Client decided not to proceed due to internal budget cuts. Not a product issue. Follow up next quarter.",
+    "full_transcript": "Thanks for making time. Have you had a chance to review the proposal? We have, and we've decided to go in a different direction. Can I ask what made the difference? Mostly internal budget cuts. Nothing to do with your product. I understand. Can I check back in next quarter? Sure, that's fine.",
+    "transcript_summary": "Deal lost due to budget cuts. Not a product issue. Follow up next quarter.",
     "deal_status": "closed_lost",
     "sentiment": "neutral",
-    "action_items": [
-      "Follow up next quarter"
-    ],
+    "action_items": ["Follow up next quarter"],
     "follow_up_date": "next quarter",
     "product_discussed": null,
-    "client_concern": "budget"
+    "client_concern": "budget",
+    "keywords": ["budget cuts", "different direction", "next quarter"]
   },
   {
     "id": "script_12",
     "title": "Pilot Proposal",
+    "full_transcript": "Rather than committing to the full rollout, would a pilot work for you? What would that look like? Five users, 60 days, with full support. You pay nothing until you decide to scale. That sounds reasonable. Let me confirm with my director. Of course. I'll send the pilot agreement so you have something concrete to show him.",
     "transcript_summary": "Pilot proposed — 5 users, 60 days, free of charge. Client confirming with director. Pilot agreement to be sent.",
     "deal_status": "in_progress",
     "sentiment": "positive",
-    "action_items": [
-      "Send pilot agreement document",
-      "Wait for director confirmation"
-    ],
+    "action_items": ["Send pilot agreement document", "Wait for director confirmation"],
     "follow_up_date": null,
     "product_discussed": "Pilot program",
     "client_concern": "commitment_risk",
     "pilot_users": 5,
-    "pilot_days": 60
+    "pilot_days": 60,
+    "keywords": ["pilot", "five users", "60 days", "director", "agreement"]
   },
   {
     "id": "script_13",
     "title": "ASR Domain Term Issue",
-    "transcript_summary": "Client reported German domain terms not being recognized correctly — KFZ-Zulassung and Rahmenvertrag. Feedback passed to ASR team.",
+    "full_transcript": "How is the platform working for your team in Frankfurt? Is working good but some words, technical words, the system is not understanding correct. That's useful feedback. Which terms specifically? Like product codes. For example KFZ-Zulassung or Rahmenvertrag. Got it. I'll pass those to our ASR team to improve recognition for those terms.",
+    "transcript_summary": "German domain terms not recognized. KFZ-Zulassung and Rahmenvertrag reported to ASR team.",
     "deal_status": "in_progress",
     "sentiment": "mixed",
-    "action_items": [
-      "Report unrecognized terms to ASR team: KFZ-Zulassung, Rahmenvertrag"
-    ],
+    "action_items": ["Report unrecognized terms to ASR team: KFZ-Zulassung, Rahmenvertrag"],
     "follow_up_date": null,
     "product_discussed": "ASR accuracy",
     "client_concern": "asr_quality",
-    "domain_terms_flagged": ["KFZ-Zulassung", "Rahmenvertrag"]
+    "domain_terms_flagged": ["KFZ-Zulassung", "Rahmenvertrag"],
+    "keywords": ["KFZ-Zulassung", "Rahmenvertrag", "Frankfurt", "ASR", "technical words"]
   },
   {
     "id": "script_14",
     "title": "Multi-Site Enterprise Client",
-    "transcript_summary": "Client has 3 offices — Berlin, Hamburg, München — with 15 reps each, totaling 45 seats. Enterprise plan to be sent. Procurement team to be looped in.",
+    "full_transcript": "You mentioned you have offices in three cities? Yes, Berlin, Hamburg, and München. Do your sales reps work across sites or are they based locally? Each city has its own team. About 15 reps each. So we're talking about 45 seats total. I can offer a multi-site enterprise plan. Send me the details and I'll loop in our procurement team.",
+    "transcript_summary": "3 offices — Berlin, Hamburg, München. 45 seats total. Send enterprise plan. Loop in procurement.",
     "deal_status": "in_progress",
     "sentiment": "positive",
-    "action_items": [
-      "Send enterprise plan details",
-      "Loop in procurement team"
-    ],
+    "action_items": ["Send enterprise plan details", "Loop in procurement team"],
     "follow_up_date": null,
     "product_discussed": "Enterprise plan",
     "client_concern": null,
     "locations": ["Berlin", "Hamburg", "München"],
-    "total_seats": 45
+    "total_seats": 45,
+    "keywords": ["Berlin", "Hamburg", "München", "45 seats", "enterprise", "procurement"]
   },
   {
     "id": "script_15",
     "title": "Demo Follow-up — CRM Integration",
-    "transcript_summary": "Team liked voice logging. Concern about HubSpot CRM integration. Native HubSpot integration exists. Technical call with engineer to be scheduled.",
+    "full_transcript": "You saw the demo last week. What did your team think? They liked the voice logging but weren't sure about the CRM integration with our system. Which CRM are you using? HubSpot. We have a native HubSpot integration. I'll set up a technical call with our engineer.",
+    "transcript_summary": "Team liked voice logging. HubSpot integration concern. Schedule technical call with engineer.",
     "deal_status": "in_progress",
     "sentiment": "positive",
-    "action_items": [
-      "Schedule technical call with engineer about HubSpot integration"
-    ],
+    "action_items": ["Schedule technical call with engineer about HubSpot integration"],
     "follow_up_date": null,
     "product_discussed": "Voice logging, CRM integration",
     "client_concern": "integration",
-    "crm_used": "HubSpot"
+    "crm_used": "HubSpot",
+    "keywords": ["voice logging", "HubSpot", "CRM", "integration", "technical call"]
   },
   {
     "id": "script_16",
     "title": "Onboarding Pushed to January",
+    "full_transcript": "I know Q4 is busy for your team. Would it make sense to onboard in January instead? Honestly yes. December is terrible for us. Let's lock in January 8th as the kickoff date then. I'll hold the slot. Perfect. Send me a calendar invite.",
     "transcript_summary": "Onboarding postponed to January 8th due to Q4 pressure. Calendar invite to be sent.",
     "deal_status": "in_progress",
     "sentiment": "positive",
-    "action_items": [
-      "Send calendar invite for January 8th onboarding kickoff"
-    ],
+    "action_items": ["Send calendar invite for January 8th onboarding kickoff"],
     "follow_up_date": "January 8",
     "product_discussed": "Onboarding",
-    "client_concern": "timing"
+    "client_concern": "timing",
+    "keywords": ["Q4", "January 8", "onboard", "December", "calendar invite"]
   },
   {
     "id": "script_17",
     "title": "Reference Request",
-    "transcript_summary": "Client wants to speak with a reference in the logistics industry. Two existing logistics clients available. Response with contact by Friday.",
+    "full_transcript": "Would it help to speak with one of our existing customers in your industry? Actually yes. Do you have anyone in logistics? We have two clients in logistics. I'll ask if one of them is open to a reference call. That would be very helpful. I'll come back to you by Friday with a contact.",
+    "transcript_summary": "Client wants reference in logistics. Check with 2 existing logistics clients. Respond by Friday.",
     "deal_status": "in_progress",
     "sentiment": "positive",
-    "action_items": [
-      "Contact 2 logistics clients about reference call",
-      "Respond to client with contact by Friday"
-    ],
+    "action_items": ["Contact 2 logistics clients about reference call", "Respond to client with contact by Friday"],
     "follow_up_date": "Friday",
     "product_discussed": null,
     "client_concern": "trust_validation",
-    "industry": "logistics"
+    "industry": "logistics",
+    "keywords": ["logistics", "reference", "two clients", "Friday"]
   },
   {
     "id": "script_18",
     "title": "Feature Requests",
-    "transcript_summary": "Client requested PDF export of summaries and custom fields in visit report. PDF export logged as feature request. Custom fields on Q2 roadmap — client added to beta list.",
+    "full_transcript": "Any feedback from the team after month one? Overall positive. One thing, can the summary be exported directly to PDF? Not currently but that's been requested before. I'll log it as a feature request. Also, can we customize the fields in the visit report? Custom fields are on our roadmap for Q2. I'll add you to the beta list.",
+    "transcript_summary": "Feature requests — PDF export and custom report fields. Log both. Add client to Q2 beta list.",
     "deal_status": "active_customer",
     "sentiment": "positive",
-    "action_items": [
-      "Log PDF export as feature request",
-      "Add client to Q2 custom fields beta list"
-    ],
+    "action_items": ["Log PDF export as feature request", "Add client to Q2 custom fields beta list"],
     "follow_up_date": null,
     "product_discussed": "Visit report, export features",
     "client_concern": "missing_features",
-    "features_requested": ["PDF export", "Custom report fields"]
+    "features_requested": ["PDF export", "Custom report fields"],
+    "keywords": ["PDF export", "custom fields", "visit report", "Q2", "beta"]
   },
   {
     "id": "script_19",
     "title": "Budget Approval Pending",
-    "transcript_summary": "Budget decision pending — finance team meets next Thursday. Follow up on Friday afternoon. One-pager to be sent for finance team.",
+    "full_transcript": "Any update on the budget approval? Still waiting. Finance meets next Thursday. Understood. Should I follow up with you on Friday then? Yes, Friday afternoon is good. I'll also send a one-page summary you can share with the finance team.",
+    "transcript_summary": "Budget pending. Finance decision Thursday. Follow up Friday afternoon. Send one-pager for finance.",
     "deal_status": "in_progress",
     "sentiment": "neutral",
-    "action_items": [
-      "Send one-pager summary for finance team",
-      "Follow up Friday afternoon after finance meeting"
-    ],
+    "action_items": ["Send one-pager summary for finance team", "Follow up Friday afternoon after finance meeting"],
     "follow_up_date": "Friday afternoon",
     "product_discussed": null,
-    "client_concern": "budget_approval"
+    "client_concern": "budget_approval",
+    "keywords": ["budget", "Thursday", "Friday afternoon", "finance", "one-page summary"]
   },
   {
     "id": "script_20",
     "title": "Short Rushed Visit",
-    "transcript_summary": "Brief visit. Client confirmed receipt of updated pricing with positive reaction. Full meeting scheduled for Wednesday. Meeting link to be sent.",
+    "full_transcript": "I know you're about to head out. I'll keep this quick. Yes sorry, I have a call in five minutes. No problem. Just wanted to confirm you received the updated pricing. I did, looks good. Let's talk properly on Wednesday. Wednesday it is. I'll send a meeting link.",
+    "transcript_summary": "Short visit. Client confirmed receipt of updated pricing. Full meeting Wednesday. Send meeting link.",
     "deal_status": "in_progress",
     "sentiment": "positive",
-    "action_items": [
-      "Send meeting link for Wednesday"
-    ],
+    "action_items": ["Send meeting link for Wednesday"],
     "follow_up_date": "Wednesday",
     "product_discussed": "Pricing",
-    "client_concern": null
+    "client_concern": null,
+    "keywords": ["pricing", "Wednesday", "meeting link", "five minutes"]
   }
 ]

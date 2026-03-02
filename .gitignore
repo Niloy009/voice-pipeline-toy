@@ -4,6 +4,7 @@ __pycache__/
 .env
 data/audio_clean/
 data/audio_noisy/
+data/audio_readback/
 data/musan/
 results/
 !results/demo_results/

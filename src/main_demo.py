@@ -226,10 +226,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--fast-demo",
         action="store_true",
-        help=(
-            "Use a smaller Whisper model and limit the number of files for faster, "
-            "interview-friendly demos."
-        ),
+        help=("Use a smaller Whisper model and limit the number of files for faster demo."),
     )
     return parser.parse_args(argv)
 

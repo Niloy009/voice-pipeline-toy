@@ -1,3 +1,5 @@
+__pycache__/
+.vscode/
 .DS_Store
 .env
 data/audio_clean/
@@ -5,4 +7,5 @@ data/audio_noisy/
 data/musan/
 results/
 images/
+!images/Flow-Diagram.png
 models/

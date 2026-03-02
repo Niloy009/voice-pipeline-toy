@@ -1,15 +1,7 @@
-"""
-Text-to-Speech audio generation module.
+"""Text-to-speech audio generation using the ElevenLabs API.
 
-This module processes conversation scripts and generates audio files using ElevenLabs API.
-It parses script files containing salesperson-client dialogues, assigns different voices
-to each speaker, and exports merged audio files with pauses between lines.
-
-Functions:
-    parse_scripts: Parse script file into structured dialogue data.
-    text_to_audio_segment: Convert text to audio using ElevenLabs TTS.
-    generate_script_audio: Generate complete audio file for a single script.
-    main: Orchestrate the audio generation process for all scripts.
+Parses conversation scripts (salesperson-client dialogues), assigns voices
+per speaker, and exports merged MP3 files with pauses between lines.
 """
 
 import os
@@ -26,8 +18,8 @@ load_dotenv()
 
 # Config
 API_KEY = os.getenv("eleven_labs_api_key")
-VOICE_SALESPERSON = "5Q0t7uMcjvnagumLfvZi" # "Paul" voice ID from ElevenLabs
-VOICE_CLIENT = "21m00Tcm4TlvDq8ikWAM" # "Rachel" voice ID from ElevenLabs
+VOICE_SALESPERSON = os.getenv("sales_paul")    # "Paul" voice ID from ElevenLabs
+VOICE_CLIENT = os.getenv("client_rachel") # "Rachel" voice ID from ElevenLabs
 SCRIPTS_PATH = Path("data/scripts/scripts_final.txt")
 OUTPUT_DIR = Path("data/audio_clean")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -36,7 +28,14 @@ client = ElevenLabs(api_key=API_KEY)
 
 
 def parse_scripts(path):
-    """Parse scripts.txt into a list of (script_id, lines) tuples."""
+    """Parse script file into a list of (script_id, lines) tuples.
+
+    Args:
+        path: Path to the script file (e.g. scripts_final.txt).
+
+    Returns:
+        List of (script_id, lines) where lines are "Salesperson:" or "Client:" strings.
+    """
     scripts = []
     current_id = None
     current_lines = []
@@ -61,7 +60,15 @@ def parse_scripts(path):
 
 
 def text_to_audio_segment(text, voice_name):
-    """Convert text to pydub AudioSegment via ElevenLabs API."""
+    """Convert text to pydub AudioSegment via ElevenLabs API.
+
+    Args:
+        text: Text to synthesize.
+        voice_name: ElevenLabs voice ID.
+
+    Returns:
+        pydub AudioSegment (MP3).
+    """
     audio_bytes = b""
     for chunk in client.text_to_speech.convert(
         text=text,
@@ -74,7 +81,12 @@ def text_to_audio_segment(text, voice_name):
 
 
 def generate_script_audio(script_id, lines):
-    """Generate merged audio for a single script."""
+    """Generate merged audio for a single script.
+
+    Args:
+        script_id: Identifier for the script (e.g. script_1).
+        lines: List of "Salesperson:" or "Client:" dialogue lines.
+    """
     print(f"Generating audio for {script_id}...")
     merged = AudioSegment.empty()
     silence = AudioSegment.silent(duration=500)  # 500ms pause between lines
@@ -98,7 +110,7 @@ def generate_script_audio(script_id, lines):
 
 
 def main():
-    '''Main function to parse scripts and generate audio files.'''
+    """Parse scripts and generate audio files for all scripts."""
     scripts = parse_scripts(SCRIPTS_PATH)
     print(f"Found {len(scripts)} scripts")
     for script_id, lines in scripts:

@@ -1,24 +1,11 @@
-"""
-extract_fields.py
-=================
-LLM-based structured field extraction and evaluation pipeline (few-shot + fuzzy matching).
+"""LLM-based structured field extraction and evaluation (few-shot + fuzzy matching).
 
-This module:
-- Loads transcription results (hypotheses) from the ASR pipeline CSV.
-- Sends each hypothesis to a local Ollama LLM (default: llama3.1:8b) using a
-few-shot prompt to extract structured fields from the sales visit transcript:
-    - deal_status: current stage of the deal.
-    - sentiment: overall tone of the conversation.
-    - action_items: list of next steps identified in the transcript.
-    - follow_up_date: date of the next scheduled follow-up.
-    - client_concern: primary concern raised by the client.
-- Evaluates extracted fields against ground truth using field-level scoring:
-    - Exact match for deal_status, sentiment, client_concern.
-    - Fuzzy match (rapidfuzz) for follow_up_date and action_items.
-    - Overall accuracy as the average of all field scores.
-- Saves per-file results to results/extraction_results_few_shot_fuzz.csv.
-- Prints a summary table of average overall accuracy per audio type
-(clean, slight_noise, heavy_noise).
+Loads transcription results from the ASR pipeline CSV, sends each hypothesis
+to a local Ollama LLM (default: llama3.1:8b) with a few-shot prompt to extract
+deal_status, sentiment, action_items, follow_up_date, and client_concern.
+Evaluates extracted fields against ground truth using exact match for
+categorical fields and fuzzy match (rapidfuzz) for dates and action items.
+Saves results to CSV and prints average accuracy per audio type.
 """
 
 import json
@@ -123,14 +110,28 @@ Return ONLY the JSON object. No explanation. No markdown. No extra text.
 
 
 def load_ground_truth(path):
-    """Load ground truth JSON and return a dict keyed by script id."""
+    """Load ground truth JSON and return a dict keyed by script id.
+
+    Args:
+        path: Path to the ground truth JSON file.
+
+    Returns:
+        Dict mapping script id to ground truth item.
+    """
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return {item["id"]: item for item in data}
 
 
 def load_transcriptions(path):
-    """Load transcription results CSV."""
+    """Load transcription results CSV.
+
+    Args:
+        path: Path to the transcription results CSV file.
+
+    Returns:
+        List of row dicts from the CSV.
+    """
     rows = []
     with open(path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -140,7 +141,15 @@ def load_transcriptions(path):
 
 
 def extract_fields(transcript):
-    """Send transcript to Ollama and extract structured fields."""
+    """Send transcript to Ollama and extract structured fields.
+
+    Args:
+        transcript: Raw transcript text from ASR.
+
+    Returns:
+        Dict with deal_status, sentiment, action_items, follow_up_date,
+        client_concern, or None if JSON parsing fails.
+    """
     prompt = PROMPT_TEMPLATE.format(transcript=transcript)
     response = ollama.chat(
         model=MODEL,
@@ -166,10 +175,17 @@ def extract_fields(transcript):
 
 
 def evaluate_extraction(predicted, ground_truth):
-    """
-    Compare predicted fields against ground truth.
-    Exact match for fixed label fields.
-    Fuzzy match for natural language fields.
+    """Compare predicted fields against ground truth.
+
+    Uses exact match for deal_status, sentiment, client_concern; fuzzy match
+    (rapidfuzz) for follow_up_date and action_items.
+
+    Args:
+        predicted: Dict of extracted fields from the LLM.
+        ground_truth: Dict of ground truth fields.
+
+    Returns:
+        Dict of per-field scores and overall_accuracy (0-1).
     """
     scores = {}
 
@@ -229,7 +245,11 @@ def evaluate_extraction(predicted, ground_truth):
 
 
 def print_summary(results):
-    """Print average extraction accuracy per audio type."""
+    """Print average extraction accuracy per audio type.
+
+    Args:
+        results: List of result dicts with audio_type and overall_accuracy.
+    """
     accuracy_by_type = defaultdict(list)
     for r in results:
         accuracy_by_type[r["audio_type"]].append(float(r["overall_accuracy"]))
@@ -246,18 +266,11 @@ def print_summary(results):
 
 
 def main():
-    """
-    Orchestrate the full extraction and evaluation pipeline.
+    """Orchestrate the full extraction and evaluation pipeline.
 
-    Steps:
-        1. Load ground truth from JSON and transcriptions from CSV.
-        2. For each transcription, send the hypothesis text to Ollama (llama3.1:8b)
-        to extract structured fields (deal_status, sentiment, action_items,
-        follow_up_date, client_concern).
-        3. Evaluate extracted fields against ground truth using field-level scoring.
-        4. Save all results (scores + predicted/ground truth JSON) to
-        results/extraction_results.csv.
-        5. Print a summary table of average overall accuracy per audio type.
+    Loads ground truth and transcriptions, extracts structured fields via
+    Ollama for each row, evaluates against ground truth, saves results to
+    CSV, and prints average accuracy per audio type.
     """
     ground_truth   = load_ground_truth(GROUND_TRUTH_PATH)
     transcriptions = load_transcriptions(TRANSCRIPTION_RESULTS)

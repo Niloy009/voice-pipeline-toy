@@ -1,15 +1,8 @@
-"""Audio augmentation module for adding noise to clean audio files.
+"""Audio augmentation for adding noise to clean audio files.
 
-This module creates noisy versions of clean audio files for data augmentation
-in voice processing tasks. It mixes clean audio with noise samples from the
-MUSAN dataset at configurable noise levels to generate both slightly noisy
-and heavily noisy audio variants.
-
-Key features:
-- Loads clean audio from a source directory
-- Applies MUSAN noise files at specified dB levels
-- Generates two augmented versions per input file (slight and heavy noise)
-- Exports results as MP3 files
+Creates noisy versions of clean audio for data augmentation by mixing with
+noise samples from the MUSAN dataset at configurable dB levels. Generates
+two variants per file (slight and heavy noise) and exports as MP3.
 """
 
 import os
@@ -29,7 +22,14 @@ HEAVY_NOISE_DB  = -10   # heavily noisy
 
 
 def get_all_noise_files(musan_dir):
-    """Recursively collect all .wav noise files from MUSAN noise folder."""
+    """Recursively collect all .wav noise files from MUSAN noise folder.
+
+    Args:
+        musan_dir: Path to the MUSAN noise directory.
+
+    Returns:
+        List of Paths to .wav files.
+    """
     noise_files = []
     for root, _, files in os.walk(musan_dir):
         for f in files:
@@ -40,7 +40,16 @@ def get_all_noise_files(musan_dir):
 
 
 def mix_with_noise(clean_audio, noise_file, noise_db):
-    """Mix a clean AudioSegment with a noise file at a given dB level."""
+    """Mix a clean AudioSegment with a noise file at a given dB level.
+
+    Args:
+        clean_audio: pydub AudioSegment of the clean audio.
+        noise_file: Path to the noise .wav file.
+        noise_db: Noise level in dB (negative = quieter than original).
+
+    Returns:
+        AudioSegment with noise overlaid on clean audio.
+    """
     noise = AudioSegment.from_file(noise_file)
 
     # Loop noise if shorter than clean audio
@@ -58,7 +67,12 @@ def mix_with_noise(clean_audio, noise_file, noise_db):
 
 
 def augment_script(clean_path, noise_files):
-    """Create 2 noisy versions of a single clean audio file."""
+    """Create two noisy versions of a single clean audio file.
+
+    Args:
+        clean_path: Path to the clean .mp3 file.
+        noise_files: List of Paths to noise .wav files.
+    """
     clean_audio = AudioSegment.from_file(clean_path)
     script_id = clean_path.stem.replace("_clean", "")
 
@@ -82,9 +96,9 @@ def augment_script(clean_path, noise_files):
 def main():
     """Run the full audio augmentation pipeline.
 
-    Loads all noise files from the MUSAN directory and all clean MP3s from the
-    clean audio directory, then generates two noisy variants (slight and heavy)
-    for each clean file, saving the results to the noisy audio directory.
+    Loads noise files from MUSAN and clean MP3s from the clean directory,
+    then generates slight and heavy noise variants for each, saving to the
+    noisy audio directory.
     """
     noise_files = get_all_noise_files(MUSAN_DIR)
     clean_files = sorted(CLEAN_DIR.glob("*.mp3"))

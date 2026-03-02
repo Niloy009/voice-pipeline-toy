@@ -1,17 +1,12 @@
-"""
-Batch ASR transcription and evaluation pipeline using OpenAI Whisper.
+"""Batch ASR transcription and evaluation using OpenAI Whisper.
 
-This module:
-- Loads clean and noisy audio files from the data directory.
-- Transcribes each file using the Whisper model (default: medium) on MPS/CPU.
-- Evaluates transcriptions against ground truth using two metrics:
-    - Word Error Rate (WER): measures word-level transcription accuracy.
-    - Keyword Accuracy: measures how many expected keywords appear in the transcript.
-- Saves per-file results to a CSV file.
-- Prints a summary table of average WER and keyword accuracy per audio type
-(clean, slight_noise, heavy_noise).
+Loads clean and noisy audio, transcribes with Whisper (default: medium),
+evaluates against ground truth using WER and keyword accuracy, and saves
+results to CSV. Exposes run_transcription() for programmatic use with
+configurable model size, file limit, and include_noisy option.
 """
 
+import argparse
 import json
 from pathlib import Path
 from collections import defaultdict
@@ -34,22 +29,41 @@ MODEL_SIZE = "medium"
 
 
 def load_ground_truth(path):
-    """Load ground truth JSON and return a dict keyed by script id."""
+    """Load ground truth JSON and return a dict keyed by script id.
+
+    Args:
+        path: Path to the ground truth JSON file.
+
+    Returns:
+        Dict mapping script id to ground truth item.
+    """
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return {item["id"]: item for item in data}
 
 
 def compute_wer(reference, hypothesis):
-    """Compute Word Error Rate using jiwer library."""
+    """Compute Word Error Rate using the jiwer library.
+
+    Args:
+        reference: Ground truth transcript.
+        hypothesis: ASR output transcript.
+
+    Returns:
+        WER score between 0 and 1 (rounded to 4 decimal places).
+    """
     return round(wer(reference.lower(), hypothesis.lower()), 4)
 
 
 def compute_keyword_accuracy(keywords, hypothesis):
-    """
-    Compute keyword accuracy:
-    how many of the expected keywords appear in the hypothesis transcript.
-    Score = matched keywords / total keywords
+    """Compute keyword accuracy: fraction of expected keywords in hypothesis.
+
+    Args:
+        keywords: List of expected keyword strings.
+        hypothesis: ASR output transcript.
+
+    Returns:
+        Fraction of keywords found (0-1), or None if keywords is empty.
     """
     if not keywords:
         return None
@@ -59,14 +73,28 @@ def compute_keyword_accuracy(keywords, hypothesis):
 
 
 def get_script_id_from_filename(filename):
-    """Extract script_id from audio filename. e.g. script_01_clean -> script_01"""
+    """Extract script_id from audio filename.
+
+    Args:
+        filename: Audio filename (e.g. script_01_clean.mp3).
+
+    Returns:
+        Script id (e.g. script_01).
+    """
     stem = Path(filename).stem
     parts = stem.split("_")
     return f"{parts[0]}_{parts[1]}"
 
 
 def get_audio_type(filename):
-    """Determine audio type from filename."""
+    """Determine audio type from filename.
+
+    Args:
+        filename: Audio filename containing slight_noise, heavy_noise, or neither.
+
+    Returns:
+        One of "clean", "slight_noise", "heavy_noise".
+    """
     if "slight_noise" in filename:
         return "slight_noise"
     elif "heavy_noise" in filename:
@@ -75,7 +103,16 @@ def get_audio_type(filename):
 
 
 def transcribe_all(model, audio_files, ground_truth):
-    """Transcribe all audio files and compute both metrics for each."""
+    """Transcribe all audio files and compute WER and keyword accuracy for each.
+
+    Args:
+        model: Loaded Whisper model.
+        audio_files: List of paths to audio files.
+        ground_truth: Dict of script_id -> ground truth item.
+
+    Returns:
+        List of result dicts with script_id, audio_type, hypothesis, wer, etc.
+    """
     results = []
 
     for audio_path in sorted(audio_files):
@@ -116,7 +153,12 @@ def transcribe_all(model, audio_files, ground_truth):
 
 
 def save_results(results, path):
-    """Save transcription results to CSV."""
+    """Save transcription results to CSV.
+
+    Args:
+        results: List of result dicts.
+        path: Output CSV path.
+    """
     fieldnames = [
         "script_id", "audio_type", "audio_file",
         "reference", "hypothesis", "wer", "keyword_accuracy"
@@ -129,7 +171,11 @@ def save_results(results, path):
 
 
 def print_summary(results):
-    """Print average WER and keyword accuracy per audio type."""
+    """Print average WER and keyword accuracy per audio type.
+
+    Args:
+        results: List of result dicts with audio_type, wer, keyword_accuracy.
+    """
     wer_by_type = defaultdict(list)
     keyword_by_type = defaultdict(list)
 
@@ -138,32 +184,93 @@ def print_summary(results):
         if r["keyword_accuracy"] is not None:
             keyword_by_type[r["audio_type"]].append(r["keyword_accuracy"])
 
+    if not results:
+        print("\nNo results to summarize.")
+        return
+
     print("\n========== Evaluation Summary ==========")
     print(f"{'Audio Type':<20} {'Avg WER':>10} {'Keyword Acc':>15}")
     print("-" * 47)
     for audio_type in ["clean", "slight_noise", "heavy_noise"]:
-        avg_wer = sum(wer_by_type[audio_type]) / len(wer_by_type[audio_type])
-        avg_keyword = sum(keyword_by_type[audio_type]) / len(keyword_by_type[audio_type])
+        wers = wer_by_type.get(audio_type)
+        if not wers:
+            continue
+        avg_wer = sum(wers) / len(wers)
+        keyword_scores = keyword_by_type.get(audio_type, [])
+        avg_keyword = (
+            sum(keyword_scores) / len(keyword_scores) if keyword_scores else 0.0
+        )
         print(f"{audio_type:<20} {avg_wer:>9.2%} {avg_keyword:>14.2%}")
     print("=========================================")
 
 
-def main():
-    """Main function to run the transcription and evaluation pipeline."""
+def run_transcription(
+    model_size: str = MODEL_SIZE,
+    max_files: int | None = None,
+    include_noisy: bool = True,
+) -> None:
+    """Run the transcription and evaluation pipeline with configurable options.
+
+    Args:
+        model_size: Whisper model size (e.g. tiny, base, small, medium, large).
+        max_files: If set, limit processing to the first N audio files.
+        include_noisy: If False, only clean audio files are transcribed.
+    """
     print(f"Using device : {DEVICE}")
-    print(f"Whisper model: {MODEL_SIZE}")
-    model = whisper.load_model(MODEL_SIZE, device=DEVICE)
+    print(f"Whisper model: {model_size}")
+    model = whisper.load_model(model_size, device=DEVICE)
 
     ground_truth = load_ground_truth(GROUND_TRUTH_PATH)
 
     clean_files = list(AUDIO_CLEAN_DIR.glob("*.mp3"))
-    noisy_files = list(AUDIO_NOISY_DIR.glob("*.mp3"))
-    all_files = clean_files + noisy_files
-    print(f"Found {len(all_files)} audio files\n")
+    audio_files = list(clean_files)
 
-    results = transcribe_all(model, all_files, ground_truth)
+    if include_noisy:
+        noisy_files = list(AUDIO_NOISY_DIR.glob("*.mp3"))
+        audio_files.extend(noisy_files)
+
+    audio_files = sorted(audio_files)
+
+    if max_files is not None:
+        audio_files = audio_files[:max_files]
+
+    print(f"Found {len(audio_files)} audio files\n")
+
+    results = transcribe_all(model, audio_files, ground_truth)
     save_results(results, RESULTS_PATH)
     print_summary(results)
+
+
+def main():
+    """CLI entrypoint for the transcription and evaluation pipeline."""
+    parser = argparse.ArgumentParser(
+        description="Batch ASR transcription and evaluation using Whisper."
+    )
+    parser.add_argument(
+        "--model-size",
+        default=MODEL_SIZE,
+        help="Whisper model size (e.g. tiny, base, small, medium, large).",
+    )
+    parser.add_argument(
+        "--max-files",
+        type=int,
+        default=None,
+        help="Optional limit on the number of audio files to process.",
+    )
+    parser.add_argument(
+        "--clean-only",
+        action="store_true",
+        help="Only transcribe clean audio (ignore noisy variants).",
+    )
+
+    args = parser.parse_args()
+    include_noisy = not args.clean_only
+
+    run_transcription(
+        model_size=args.model_size,
+        max_files=args.max_files,
+        include_noisy=include_noisy,
+    )
 
 
 if __name__ == "__main__":

@@ -205,7 +205,7 @@ def evaluate_extraction(predicted, ground_truth):
     )
 
 # follow_up_date — fuzzy match (natural language varies)
-    gt_date   = ground_truth.get("follow_up_date") or ""
+    gt_date = ground_truth.get("follow_up_date") or ""
     pred_date = predicted.get("follow_up_date") or ""
     if gt_date == "" and pred_date == "":
         scores["follow_up_date_correct"] = 1
@@ -218,7 +218,7 @@ def evaluate_extraction(predicted, ground_truth):
 
 
     # action_items — fuzzy partial match (natural language varies)
-    gt_actions   = ground_truth.get("action_items", [])
+    gt_actions = ground_truth.get("action_items", [])
     pred_actions = predicted.get("action_items", [])
     if gt_actions:
         matched = sum(
@@ -272,11 +272,11 @@ def main():
     Ollama for each row, evaluates against ground truth, saves results to
     CSV, and prints average accuracy per audio type.
     """
-    ground_truth   = load_ground_truth(GROUND_TRUTH_PATH)
+    ground_truth = load_ground_truth(GROUND_TRUTH_PATH)
     transcriptions = load_transcriptions(TRANSCRIPTION_RESULTS)
     print(f"Loaded {len(transcriptions)} transcriptions")
 
-    results    = []
+    results = []
     fieldnames = [
         "script_id", "audio_type", "audio_file",
         "deal_status_correct", "sentiment_correct",
@@ -286,7 +286,7 @@ def main():
     ]
 
     for row in transcriptions:
-        script_id  = row["script_id"]
+        script_id = row["script_id"]
         audio_type = row["audio_type"]
         hypothesis = row["hypothesis"]
         gt = ground_truth.get(script_id)

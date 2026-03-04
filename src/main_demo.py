@@ -60,7 +60,6 @@ def check_elevenlabs_env() -> bool:
     """
     required_vars = [
         "eleven_labs_api_key",
-        "eleven_labs_api_key_two",
         "sales_paul",
         "client_rachel",
     ]

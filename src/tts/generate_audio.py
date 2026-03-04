@@ -83,10 +83,17 @@ def text_to_audio_segment(text, voice_name):
 def generate_script_audio(script_id, lines):
     """Generate merged audio for a single script.
 
+    Skips the API call if the output file already exists.
+
     Args:
         script_id: Identifier for the script (e.g. script_1).
         lines: List of "Salesperson:" or "Client:" dialogue lines.
     """
+    out_path = OUTPUT_DIR / f"{script_id}_clean.mp3"
+    if out_path.exists():
+        print(f"Skipping (already exists): {out_path}")
+        return
+
     print(f"Generating audio for {script_id}...")
     merged = AudioSegment.empty()
     silence = AudioSegment.silent(duration=500)  # 500ms pause between lines
@@ -104,7 +111,6 @@ def generate_script_audio(script_id, lines):
         segment = text_to_audio_segment(text, voice)
         merged += segment + silence
 
-    out_path = OUTPUT_DIR / f"{script_id}_clean.mp3"
     merged.export(out_path, format="mp3")
     print(f"Saved: {out_path}")
 

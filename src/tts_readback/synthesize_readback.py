@@ -12,7 +12,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from elevenlabs import ElevenLabs
 from pydub import AudioSegment
-from format_fields import load_extraction_results, build_formatted_rows, save_formatted_results
+from .format_fields import load_extraction_results, build_formatted_rows, save_formatted_results
 
 # Config
 load_dotenv()

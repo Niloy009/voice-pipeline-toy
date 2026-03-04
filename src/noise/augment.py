@@ -69,12 +69,21 @@ def mix_with_noise(clean_audio, noise_file, noise_db):
 def augment_script(clean_path, noise_files):
     """Create two noisy versions of a single clean audio file.
 
+    Skips processing if both output files already exist on disk.
+
     Args:
         clean_path: Path to the clean .mp3 file.
         noise_files: List of Paths to noise .wav files.
     """
-    clean_audio = AudioSegment.from_file(clean_path)
     script_id = clean_path.stem.replace("_clean", "")
+    slight_path = NOISY_DIR / f"{script_id}_slight_noise.mp3"
+    heavy_path  = NOISY_DIR / f"{script_id}_heavy_noise.mp3"
+
+    if slight_path.exists() and heavy_path.exists():
+        print(f"Skipping (already exists): {script_id}")
+        return
+
+    clean_audio = AudioSegment.from_file(clean_path)
 
     # Pick a random noise file for each version
     noise_file_1 = random.choice(noise_files)
@@ -82,13 +91,11 @@ def augment_script(clean_path, noise_files):
 
     # Slightly noisy version
     slight = mix_with_noise(clean_audio, noise_file_1, SLIGHT_NOISE_DB)
-    slight_path = NOISY_DIR / f"{script_id}_slight_noise.mp3"
     slight.export(slight_path, format="mp3")
     print(f"Saved: {slight_path}")
 
     # Heavily noisy version
     heavy = mix_with_noise(clean_audio, noise_file_2, HEAVY_NOISE_DB)
-    heavy_path = NOISY_DIR / f"{script_id}_heavy_noise.mp3"
     heavy.export(heavy_path, format="mp3")
     print(f"Saved: {heavy_path}")
 

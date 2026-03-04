@@ -27,29 +27,38 @@ from src.asr.transcribe import (
 DEVICE = "mps" if torch.backends.mps.is_available() else "cpu"
 
 
-def select_audio_files(max_files: int | None, per_type: int = 2) -> list[Path]:
+def select_audio_files(max_files: int | None) -> list[Path]:
     """Select a balanced subset of audio files for the experiment.
 
-    Takes up to per_type clean, per_type slight_noise, and per_type heavy_noise.
+    Distributes max_files evenly across clean, slight_noise, and heavy_noise
+    types (ceiling division), then trims to max_files.
 
     Args:
         max_files: If set, cap total number of files.
-        per_type: Max files per audio type (default 2).
 
     Returns:
         List of paths to selected audio files.
     """
+    import math
+    per_type = math.ceil(max_files / 3) if max_files is not None else None
+
     # Clean files live in AUDIO_CLEAN_DIR
-    clean_files = sorted(AUDIO_CLEAN_DIR.glob("*.mp3"))[:per_type]
+    clean_files = sorted(AUDIO_CLEAN_DIR.glob("*.mp3"))
+    if per_type is not None:
+        clean_files = clean_files[:per_type]
 
     # Noisy files live in AUDIO_NOISY_DIR; split by name pattern
     slight_files = sorted(
         p for p in AUDIO_NOISY_DIR.glob("*.mp3") if "slight_noise" in p.name
-    )[:per_type]
+    )
+    if per_type is not None:
+        slight_files = slight_files[:per_type]
 
     heavy_files = sorted(
         p for p in AUDIO_NOISY_DIR.glob("*.mp3") if "heavy_noise" in p.name
-    )[:per_type]
+    )
+    if per_type is not None:
+        heavy_files = heavy_files[:per_type]
 
     all_files = clean_files + slight_files + heavy_files
 

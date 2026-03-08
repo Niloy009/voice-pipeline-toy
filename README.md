@@ -1,7 +1,7 @@
 
 ## A Voice Pipeline Demo
 
-This repository contains a small, end-to-end **voice assistant pipeline** inspired by a startup ML Engineer role.  
+This repository contains a small, end-to-end **voice assistant pipeline** inspired by a startup's ML Engineer role.  
 It turns **scripted sales visits** into synthetic audio, adds realistic noise, runs **ASR + LLM-based extraction**, and
 finally synthesizes a **spoken “readback” summary** of the meeting.
 
@@ -125,7 +125,7 @@ ollama pull llama3.1:8b
 
 ## 3. Unified demo CLI (`src/main_demo.py`)
 
-For interview/demo use, there is a small orchestrator:
+For demo use, there is a small orchestrator:
 
 - `src/main_demo`
 
